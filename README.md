@@ -43,7 +43,7 @@ To use the Note Taker application:
 2.	On the landing page, click on the link to the Notes page.
 3.	On the Notes page:
 •	Existing notes are listed on the left-hand column.
-•	You can enter a new note title and text in the right-hand column.
+•	Enter a new note title and text in the right-hand column.
 •	Click the Save button to store the new note.
 •	Click on an existing note to view or edit it.
 •	You can delete a note by clicking the delete icon next to it.

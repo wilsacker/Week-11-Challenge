@@ -12,16 +12,6 @@ app.use(express.urlencoded({ extended: true }));
 // Serve static assets from the "public" folder
 app.use(express.static("public"));
 
-// Route to serve the notes page
-app.get("/notes", (req, res) => {
-  res.sendFile(path.join(__dirname, "public/notes.html"));
-});
-
-// Default route to serve the index page
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "public/index.html"));
-});
-
 // GET route to retrieve all saved notes
 app.get("/api/notes", (req, res) => {
   fs.readFile("./db/db.json", "utf8", (err, data) => {
@@ -50,6 +40,33 @@ app.post("/api/notes", (req, res) => {
   });
 });
 
-app.listen(PORT, () => {
-    console.log(`App running on http://localhost:${PORT}`);
+// DELETE route to delete a note by ID
+app.delete("/api/notes/:id", (req, res) => {
+  const noteId = parseInt(req.params.id);  // Get the note ID from the request parameters
+
+  fs.readFile("./db/db.json", "utf8", (err, data) => {
+    if (err) throw err;
+
+    let notes = JSON.parse(data);  // Parse the current notes from db.json
+    notes = notes.filter(note => note.id !== noteId);  // Filter out the note with the matching ID
+
+    fs.writeFile("./db/db.json", JSON.stringify(notes, null, 2), (err) => {  // Write the updated notes back to db.json
+      if (err) throw err;
+      res.json({ message: "Note deleted" });  // Send a response indicating the note was deleted
+    });
   });
+});
+
+// Route to serve the notes page (notes.html)
+app.get('/notes', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public/notes.html'));
+});
+
+// Default route to serve index.html (must be the last route)
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "public/index.html"));
+});
+
+app.listen(PORT, () => {
+  console.log(`App running on http://localhost:${PORT}`);
+});
