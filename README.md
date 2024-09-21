@@ -46,7 +46,12 @@ To use the Note Taker application:
 •	Enter a new note title and text in the right-hand column.
 •	Click the Save button to store the new note.
 •	Click on an existing note to view or edit it.
-•	You can delete a note by clicking the delete icon next to it.
+•	You can delete a note by clicking the trash icon next to it.
+
+![main](./public/assets/img/main.png)
+![New Note Page](./public/assets/img/newnote.png)
+![save](./public/assets/img/save.png)
+![retrieve](./public/assets/img/retrieve.png)
 
 ## License
 
@@ -65,4 +70,12 @@ This project doesn’t include any test suites, but you can manually test it by 
 If you have any questions, feel free to reach out:
 - GitHub: [wilsacker](https://github.com/wilsacker)
 - Email: williamsuttona@gmail.com
-  
+
+## Sources
+
+This project was completed with the help of the following resources:
+
+- [ChatGPT](https://chat.openai.com) - Used for guidance and assistance in building and troubleshooting parts of the application.
+- [Node.js Documentation](https://nodejs.org/en/docs/) - For understanding the setup and use of Node.js.
+- [Express.js Documentation](https://expressjs.com/en/starter/installing.html) - For configuring the Express.js server.
+- [MDN Web Docs](https://developer.mozilla.org/) - For information on JavaScript functions and web development.
